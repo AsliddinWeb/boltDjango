@@ -581,5 +581,22 @@
 <script src="{% static 'assets/plugins/apexcharts/dist/apexcharts.min.js' %}" type="text/javascript"></script>
 <script src="{% static 'assets/js/demo/dashboard.demo.js' %}" type="text/javascript"></script>
 
+<script>
+  const notificationSocket = new WebSocket(
+      'ws://'
+      + window.location.host
+      + '/ws/notification/'
+  );
+
+  notificationSocket.onmessage = function (e) {
+      const data = JSON.parse(e.data);
+      console.log(data);
+  }
+
+  notificationSocket.onclose = function (e) {
+      console.error('Closed!', e);
+  }
+</script>
+
 </body>
 </html>

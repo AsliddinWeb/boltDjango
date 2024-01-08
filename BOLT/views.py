@@ -45,6 +45,7 @@ def home_page(request):
             'today_orders_1': today_orders_1,
             'today_orders_2': today_orders_2,
             'users': users,
+
         }
 
         return render(request, 'admin-home.html', admin_ctx)
